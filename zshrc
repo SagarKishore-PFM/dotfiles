@@ -9,22 +9,31 @@ export ZSH="/home/sagarkishore/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-alias git="/mnt/c/Program\ Files/Git/bin/git.exe"
-alias gi="/usr/bin/git"
-alias cdp="cd /mnt/e/Projects/"
 alias pip="pip3"
-# alias conda="/mnt/c/Anaconda3/condabin/conda.bat"
-
+alias vim="nvim"
+alias vi="nvim"
+alias zrc="vi ~/.zshrc"
+alias vrc="vi ~/.vimrc"
+alias zclrs="for code ({000..255}) print -P -- '$code: %F{$code}This is how your text would look like%f'"
+export TERM=xterm-256color
 ##########################################################################################################
 #					POWERLEVEL9K CONFIGURATIONS
 ##########################################################################################################
 
-DEFAULT_FOREGROUND=003 DEFAULT_BACKGROUND="none"
+DEFAULT_FOREGROUND="none" DEFAULT_BACKGROUND="none"
 DEFAULT_COLOR=$DEFAULT_FOREGROUND
-CONTEXT_FOREGROUND=003
-DIR_FOREGROUND=033
-VCS_FOREGROUND=003
-PYENV_FOREGROUND=009
+CONTEXT_FOREGROUND=015
+DIR_FOREGROUND=004
+VCS_FOREGROUND="none"
+PYENV_FOREGROUND=005
+
+# DEFAULT_FOREGROUND=003 DEFAULT_BACKGROUND="none"
+# DEFAULT_COLOR=$DEFAULT_FOREGROUND
+# CONTEXT_FOREGROUND=003
+# DIR_FOREGROUND=033
+# VCS_FOREGROUND=003
+# PYENV_FOREGROUND=009
+
 
 # powerlevel9k prompt theme
 #DEFAULT_USER=$USER
@@ -66,15 +75,16 @@ POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_STATUS_CROSS=true
 
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{001}❱%F{003}❱%F{002}❱"
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="❱❱❱"
 
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{003}❱%F{003}❱%F{003}❱"
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND=010
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="yellow"
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=011
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="$VCS_FOREGROUND"
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=012
 
 POWERLEVEL9K_DIR_HOME_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_DIR_HOME_FOREGROUND="$DIR_FOREGROUND"
@@ -92,14 +102,10 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=005
 POWERLEVEL9K_VIRTUALENV_BACKGROUND="none"
 
 POWERLEVEL9K_STATUS_OK_FOREGROUND="$DEFAULT_FOREGROUND"
-POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
-POWERLEVEL9K_STATUS_OK_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_STATUS_OK_BACKGROUND="$DEFAULT_BACKGROUND"
 
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND="$DEFAULT_FOREGROUND"
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND=001
 POWERLEVEL9K_STATUS_ERROR_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_STATUS_ERROR_BACKGROUND="$DEFAULT_BACKGROUND)"
 
 POWERLEVEL9K_HISTORY_FOREGROUND="$DEFAULT_FOREGROUND"
 
@@ -260,28 +266,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
+# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#         source /etc/profile.d/vte.sh
+# fi
 
-export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+# export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
+# export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
  
 # source ~/.purepower
-eval $(dircolors -b $HOME/.dircolors)
+# eval $(dircolors -b $HOME/.dircolors)
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/sagarkishore/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/sagarkishore/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
