@@ -9,9 +9,14 @@ export ZSH="/home/sagarkishore/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+alias ca="conda activate"
+alias runs="python manage.py runserver"
+alias mm="python manage.py makemigrations"
+alias mig="python manage.py migrate"
+alias mt="python manage.py test"
 alias pip="pip3"
+alias vi="vim"
 alias vim="nvim"
-alias vi="nvim"
 alias zrc="vi ~/.zshrc"
 alias vrc="vi ~/.vimrc"
 alias zclrs="for code ({000..255}) print -P -- '$code: %F{$code}This is how your text would look like%f'"
@@ -85,6 +90,8 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=011
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=012
+POWERLEVEL9K_HIDE_BRANCH_ICON=true
+
 
 POWERLEVEL9K_DIR_HOME_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_DIR_HOME_FOREGROUND="$DIR_FOREGROUND"
@@ -276,4 +283,20 @@ source $ZSH/oh-my-zsh.sh
 # source ~/.purepower
 # eval $(dircolors -b $HOME/.dircolors)
 
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sagarkishore/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sagarkishore/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sagarkishore/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sagarkishore/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

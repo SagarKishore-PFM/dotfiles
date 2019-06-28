@@ -1,4 +1,5 @@
 " Basic
+set encoding=utf-8
 set nocompatible        " get rid of Vi compatibility mode. SET FIRST!
 syntax enable          	" enable syntax processing
 set ruler               " Always show info along bottom.
@@ -12,8 +13,30 @@ colorscheme gruvbox
 "" colorscheme badwolf     	" awesome colorscheme
 
 " Spaces and Tabs
-set tabstop=4       		" number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
+" For PEP8 Python
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" For JS, HTML, CSS
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+" Bad Whitespace
+" Use the below highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
+
+" Display tabs at the beginning of a line in Python mode as bad.
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " UI
 
@@ -61,6 +84,11 @@ nnoremap ^ <nop>
 " highlight last inserted text
 nnoremap gV `[v`]
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Leader Shortcuts
 
@@ -84,7 +112,9 @@ highlight Comment cterm=italic gui=italic
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
-
+" Ctrl Space remapped to omni completion
+" inoremap <C-Space> <C-x><C-o>
+" inoremap <C-@> <C-Space>
 
 " NerdTree Toggle keymap
 map <C-n> :NERDTreeToggle<CR>	
@@ -127,6 +157,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
 
 " CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Tagbar
+Plug 'majutsushi/tagbar'
 
 " Rainbow Parens
 Plug 'kien/rainbow_parentheses.vim'
@@ -146,6 +180,11 @@ Plug 'tpope/vim-commentary'
 " Spacegray color theme https://github.com/ajh17/spacegray.vim
 Plug 'ajh17/spacegray.vim'
 
+" Wakatime
+Plug 'wakatime/vim-wakatime'
+
+" Flake8
+Plug 'nvie/vim-flake8'
 
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
@@ -169,6 +208,17 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+
+" YCM Settings
+let g:ycm_min_num_of_chars_for_completion = 1    " Suggest after 1 char
+
+
+" jump to defn remapped to ,jd
+nnoremap <leader>jd :YcmCompleter GoTo<CR>       
+
+" NerdTree Ignore *.pyc files
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " Airline settings
 " Automatically displays all buffers when there's only one tab open.
