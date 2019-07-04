@@ -1,4 +1,4 @@
-aa#
+#
 # ~/.bashrc
 #
 
@@ -140,3 +140,19 @@ ex ()
 
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sagarkishore/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sagarkishore/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sagarkishore/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sagarkishore/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
