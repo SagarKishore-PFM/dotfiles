@@ -9,18 +9,26 @@ export ZSH="/home/sagarkishore/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# export PATH="/home/sagarkishore/anaconda3/bin:$PATH"
+
+# alias conda="source /home/sagarkishore/anaconda3/bin/activate"
+alias z="exec zsh"
 alias ca="conda activate"
-alias runs="python manage.py runserver"
-alias mm="python manage.py makemigrations"
-alias mig="python manage.py migrate"
-alias mt="python manage.py test"
-alias pip="pip3"
+alias druns="python manage.py runserver"
+alias dmm="python manage.py makemigrations"
+alias dmig="python manage.py migrate"
+alias dtest="python manage.py test"
+# alias pip="pip3"
 alias v="nvim"
+alias t="tmux"
 # alias vim="nvim"
 alias sv="sudo nvim"
 alias zrc="v ~/.zshrc"
 alias vrc="v ~/.vimrc"
+alias trc="v ~/.tmux.conf"
+alias nvrc="v ~/.config/nvim/init.vim"
 alias zclrs="for code ({000..255}) print -P -- '$code: %F{$code}This is how your text would look like%f'"
+alias cl="clear"
 export TERM=xterm-256color
 ##########################################################################################################
 #					POWERLEVEL9K CONFIGURATIONS
@@ -33,16 +41,6 @@ DIR_FOREGROUND=004
 VCS_FOREGROUND="none"
 PYENV_FOREGROUND=005
 
-# DEFAULT_FOREGROUND=003 DEFAULT_BACKGROUND="none"
-# DEFAULT_COLOR=$DEFAULT_FOREGROUND
-# CONTEXT_FOREGROUND=003
-# DIR_FOREGROUND=033
-# VCS_FOREGROUND=003
-# PYENV_FOREGROUND=009
-
-
-# powerlevel9k prompt theme
-#DEFAULT_USER=$USER
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
@@ -50,8 +48,6 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir ssh anaconda virtualenv)
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh root_indicator dir_writable dir)
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir_writable dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs time)
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=' '
@@ -81,9 +77,8 @@ POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_STATUS_CROSS=true
 
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="❱❱❱"
 
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{003}❱%F{003}❱%F{003}❱"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{003}❱%F{003}❱%F{003}❱ "
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND=010
@@ -126,8 +121,6 @@ POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="$DEFAULT_FOREGROUND"
 POWERLEVEL9K_EXECUTION_TIME_ICON="\u23F1"
 
-#POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-#POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
 
 POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND="$DEFAULT_FOREGROUND"
@@ -143,7 +136,6 @@ POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="magenta"
 POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="$DEFAULT_BACKGROUND"
-#POWERLEVEL9K_ROOT_ICON=$'\uFF03' # ＃
 POWERLEVEL9K_ROOT_ICON=$'\uF198'  # 
 
 POWERLEVEL9K_SSH_FOREGROUND="$DEFAULT_FOREGROUND"
@@ -184,58 +176,9 @@ POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND="$DEFAULT_BACKGROUND"
 
 ##########################################################################################################
 
-# Easily switch primary foreground/background colors
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
@@ -245,19 +188,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -265,39 +195,12 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-#         source /etc/profile.d/vte.sh
-# fi
+. /home/sagarkishore/anaconda3/etc/profile.d/conda.sh
 
-# export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
-# export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
- 
-# source ~/.purepower
-# eval $(dircolors -b $HOME/.dircolors)
-
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/sagarkishore/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/sagarkishore/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/sagarkishore/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/sagarkishore/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
