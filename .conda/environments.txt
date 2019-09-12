@@ -1,0 +1,2 @@
+/Users/apple/anaconda3
+/Users/apple/anaconda3/envs/hupler

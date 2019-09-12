@@ -19,13 +19,22 @@ alias druns="python manage.py runserver"
 alias dmm="python manage.py makemigrations"
 alias dmig="python manage.py migrate"
 alias dtest="python manage.py test"
-
+alias dsh="python manage.py shell"
 # alias pip="pip3"
 alias v="nvim"
 
 # Tmux aliases
 
 alias t="tmux"
+
+alias tls="tmux ls"
+alias tas="tmux attach -t"
+alias tns="tmux new -s"
+
+
+alias tpmtip="~/.tmux/plugins/tpm/bin/install_plugins"
+alias tpmtup="~/.tmux/plugins/tpm/bin/update_plugins"
+alias tpmtdp="~/.tmux/plugins/tpm/bin/clean_plugins"
 
 # alias vim="nvim"
 alias sv="sudo nvim"
@@ -213,4 +222,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 # Locale error fix on Mac
 export LC_ALL=en_US.UTF-8
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
