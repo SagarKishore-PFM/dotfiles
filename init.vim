@@ -201,18 +201,16 @@ Plug 'tpope/vim-surround'
 	Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 	" YCM Settings
-	let g:ycm_min_num_of_chars_for_completion = 0    " Suggest after 1 char
+	let g:ycm_min_num_of_chars_for_completion = 1    " Suggest after 1 char
 	let g:ycm_error_symbol = '!'
 	let g:ycm_warning_symbol = '?'
 	let g:ycm_autoclose_preview_window_after_completion = 1 " close p preview after completion
 	let g:ycm_autoclose_preview_window_after_insertion = 1 " close preview after insertion
 	" let g:ycm_min_num_of_chars_for_completion = 99 " Force Identifier completion to not popup and instead use Semantic
-	let g:ycm_collect_identifiers_from_tags_files = 1
+	let g:ycm_collect_identifiers_from_tags_files = 0
 	let g:ycm_extra_conf_globlist = ['~/Projects/*']
-	let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-	let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '`']
 	let g:ycm_key_list_stop_completion = ['<ENTER>']
-
+	" let g:ycm_key_invoke_completion = '<S-Space>'
 	" jump to defn remapped to ,jd
 	nnoremap <leader>jd :YcmCompleter GoTo<CR>       
 " }}}
@@ -343,6 +341,10 @@ Plug 'machakann/vim-highlightedyank'
 
 " Tmux navigation
 Plug 'christoomey/vim-tmux-navigator'
+
+" Tmux focus
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
 
 " Better pasting
 Plug 'sickill/vim-pasta'
