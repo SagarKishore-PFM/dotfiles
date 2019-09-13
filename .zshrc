@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="/home/sagarkishore/.oh-my-zsh"
+export ZSH="/Users/apple/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -9,18 +9,33 @@ export ZSH="/home/sagarkishore/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# export PATH="/home/sagarkishore/anaconda3/bin:$PATH"
+# export PATH="/Users/apple/anaconda3/bin:$PATH"
 
-# alias conda="source /home/sagarkishore/anaconda3/bin/activate"
+# alias conda="source /Users/apple/anaconda3/bin/activate"
 alias z="exec zsh"
 alias ca="conda activate"
+alias cdd="conda deactivate"
 alias druns="python manage.py runserver"
 alias dmm="python manage.py makemigrations"
 alias dmig="python manage.py migrate"
 alias dtest="python manage.py test"
+alias dsh="python manage.py shell"
 # alias pip="pip3"
 alias v="nvim"
+
+# Tmux aliases
+
 alias t="tmux"
+
+alias tls="tmux ls"
+alias tas="tmux attach -t"
+alias tns="tmux new -s"
+
+
+alias tpmtip="~/.tmux/plugins/tpm/bin/install_plugins"
+alias tpmtup="~/.tmux/plugins/tpm/bin/update_plugins"
+alias tpmtdp="~/.tmux/plugins/tpm/bin/clean_plugins"
+
 # alias vim="nvim"
 alias sv="sudo nvim"
 alias zrc="v ~/.zshrc"
@@ -136,7 +151,7 @@ POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="magenta"
 POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_ROOT_ICON=$'\uF198'  # 
+POWERLEVEL9K_ROOT_ICON='\uF198'  # 
 
 POWERLEVEL9K_SSH_FOREGROUND="$DEFAULT_FOREGROUND"
 POWERLEVEL9K_SSH_FOREGROUND="yellow"
@@ -201,6 +216,12 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-. /home/sagarkishore/anaconda3/etc/profile.d/conda.sh
+. /Users/apple/anaconda3/etc/profile.d/conda.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Locale error fix on Mac
+export LC_ALL=en_US.UTF-8
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
