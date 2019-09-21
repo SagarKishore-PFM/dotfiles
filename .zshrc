@@ -62,7 +62,7 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir ssh anaconda virtualenv)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir ssh anaconda virtualenv vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs time)
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=' '
@@ -196,6 +196,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  vi-mode
   git
   virtualenv
   zsh-syntax-highlighting
