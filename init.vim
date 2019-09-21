@@ -194,6 +194,12 @@ Plug 'vim-airline/vim-airline-themes'
 " Surround Vim
 Plug 'tpope/vim-surround'
 
+" Dim inactive pane {{{
+	Plug 'TaDaa/vimade'
+
+	let g:enablefocusfading = 1
+
+" }}}
 
 " You Complete Me {{{
 	" Note - See this for Python https://github.com/ycm-core/YouCompleteMe#python-semantic-completion
@@ -208,7 +214,7 @@ Plug 'tpope/vim-surround'
 	let g:ycm_autoclose_preview_window_after_insertion = 1 " close preview after insertion
 	" let g:ycm_min_num_of_chars_for_completion = 99 " Force Identifier completion to not popup and instead use Semantic
 	let g:ycm_collect_identifiers_from_tags_files = 0
-	let g:ycm_extra_conf_globlist = ['~/Projects/*']
+	let g:ycm_extra_conf_globlist = ['~/Projects/*', '~/projects/*']
 	let g:ycm_key_list_stop_completion = ['<ENTER>']
 	" let g:ycm_key_invoke_completion = '<S-Space>'
 	" jump to defn remapped to ,jd
@@ -267,6 +273,10 @@ Plug 'plasticboy/vim-markdown'
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 " }}}
+
+" Fuzzy Finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 
 " Async syntax check for neovim
@@ -387,6 +397,27 @@ let g:neomake_serialize_abort_on_error = 1
 " colorscheme
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
+
+" FZF Shortcuts
+map <C-p> ;Files<cr>
+
+" Dim Inactive Window
+" Background colors for active vs inactive windows
+au! FocusLost * VimadeFadeActive
+au! FocusGained * VimadeUnfadeActive
+
+" Call method on window enter
+augroup WindowManagement
+  autocmd!
+  autocmd WinEnter * call Handle_Win_Enter()
+augroup END
+
+" Change highlight group of active/inactive windows
+function! Handle_Win_Enter()
+  setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+ endfunction
+
+
 "Easy Tab select
 
 tmap <leader>1 <C-\><C-n><Plug>AirlineSelectTab1
