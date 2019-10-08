@@ -3,6 +3,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/apple/.oh-my-zsh"
 
+# rabbitmq
+PATH=$PATH:/usr/local/sbin
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -62,7 +65,7 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir ssh anaconda virtualenv vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir ssh anaconda virtualenv vcs vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs time)
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=' '
