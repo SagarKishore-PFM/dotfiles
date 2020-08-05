@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/apple/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # rabbitmq
 PATH=$PATH:/usr/local/sbin
@@ -220,12 +220,13 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-. /Users/apple/anaconda3/etc/profile.d/conda.sh
+. $HOME/anaconda3/etc/profile.d/conda.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Locale error fix on Mac
 export LC_ALL=en_US.UTF-8
 
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+# code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+# source /opt/intel/openvino/bin/setupvars.sh
 

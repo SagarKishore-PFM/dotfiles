@@ -212,7 +212,14 @@ Plug 'tpope/vim-surround'
 	let g:ycm_warning_symbol = '?'
 	let g:ycm_autoclose_preview_window_after_completion = 1 " close p preview after completion
 	let g:ycm_autoclose_preview_window_after_insertion = 1 " close preview after insertion
-	" let g:ycm_min_num_of_chars_for_completion = 99 " Force Identifier completion to not popup and instead use Semantic
+	let g:ycm_min_num_of_chars_for_completion = 99 " Force Identifier completion to not popup and instead use Semantic
+	" Always prefer semantic completion
+	" https://stackoverflow.com/questions/26816651/ycm-gycm-semantic-triggers-doesnt-work
+	if !exists('g:ycm_semantic_triggers')
+		let g:ycm_semantic_triggers = {}
+	endif
+
+	let g:ycm_semantic_triggers.python = ['re!(?=[a-zA-Z_]{1})']
 	let g:ycm_collect_identifiers_from_tags_files = 0
 	let g:ycm_extra_conf_globlist = ['~/Projects/*', '~/projects/*']
 	let g:ycm_key_list_stop_completion = ['<ENTER>']
@@ -220,7 +227,6 @@ Plug 'tpope/vim-surround'
 	" jump to defn remapped to ,jd
 	nnoremap <leader>jd :YcmCompleter GoTo<CR>       
 " }}}
-
 
 " Fugitive the git plugin that makes it look like vscode
 Plug 'tpope/vim-fugitive'
