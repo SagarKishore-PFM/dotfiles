@@ -10,7 +10,8 @@ PATH=$PATH:/usr/local/sbin
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=""
 
 # export PATH="/Users/apple/anaconda3/bin:$PATH"
 
@@ -220,7 +221,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-. $HOME/anaconda3/etc/profile.d/conda.sh
+# . $HOME/anaconda3/etc/profile.d/conda.sh  # commented out by conda initialize
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -230,3 +231,31 @@ export LC_ALL=en_US.UTF-8
 # code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # source /opt/intel/openvino/bin/setupvars.sh
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sagarkishore/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sagarkishore/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+if [ -d "$HOME/.local/bin" ] ; then
+	    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set PATH so it includes miniconda's bin
+if [ -d "$HOME/miniconda3/bin" ] ; then
+    PATH="$HOME/miniconda3/bin:$PATH"
+fi
+
+export BROWSER='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
+
+eval "$(starship init zsh)"
