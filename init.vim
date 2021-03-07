@@ -195,10 +195,18 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 
 " Dim inactive pane {{{
-	Plug 'TaDaa/vimade'
+	" Plug 'TaDaa/vimade'
 
-	let g:enablefocusfading = 1
+	" let g:enablefocusfading = 1
 
+	" Dim Inactive Window
+	" Background colors for active vs inactive windows
+	" au! FocusLost * VimadeFadeActive
+	" au! FocusGained * VimadeUnfadeActive
+
+	Plug 'blueyed/vim-diminactive'
+
+	let g:diminactive_enable_focus = 1
 " }}}
 
 " You Complete Me {{{
@@ -407,10 +415,6 @@ let g:gruvbox_contrast_dark='hard'
 " FZF Shortcuts
 map <C-p> ;Files<cr>
 
-" Dim Inactive Window
-" Background colors for active vs inactive windows
-au! FocusLost * VimadeFadeActive
-au! FocusGained * VimadeUnfadeActive
 
 " Call method on window enter
 augroup WindowManagement
