@@ -23,6 +23,9 @@ set title               " Set terminal title
 set showmatch
 set clipboard=unnamed   " Better copy pasting across system`
 set cursorline          " Highlight the line the cursor points to
+set mmp=5000            " Allow for complex patterns
+
+
 " Spaces and Tabs
 
 set smarttab            " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
