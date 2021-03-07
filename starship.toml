@@ -1,0 +1,31 @@
+[git_status]
+style = ""
+
+untracked = "U"
+untracked_count.style = "blue"
+untracked_count.enabled = true
+
+modified = "M"
+modified_count.style = "yellow"
+modified_count.enabled = true
+
+deleted = "D"
+deleted_count.style = "red"
+deleted_count.enabled = true
+
+renamed = "R"
+renamed_count.style = "cyan"
+
+stashed = "📦"
+stashed_count.enabled = true
+stashed_count.style = "magenta"
+
+staged_count.enabled = true
+staged_count.style = "green"
+
+
+[directory]
+truncate_to_repo = false
+
+[conda]
+symbol = " "
