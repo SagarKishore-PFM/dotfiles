@@ -1,7 +1,10 @@
+# Profiler
+# zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 # rabbitmq
 PATH=$PATH:/usr/local/sbin
@@ -200,13 +203,13 @@ COMPLETION_WAITING_DOTS="true"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  vi-mode
-  git
-  virtualenv
-  zsh-syntax-highlighting
+  # vi-mode
+  # git
+  # virtualenv
+  # zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 
 # Compilation flags
@@ -216,10 +219,10 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # . $HOME/anaconda3/etc/profile.d/conda.sh  # commented out by conda initialize
 
@@ -233,18 +236,18 @@ export LC_ALL=en_US.UTF-8
 
 
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/sagarkishore/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/sagarkishore/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/sagarkishore/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/sagarkishore/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
 if [ -d "$HOME/.local/bin" ] ; then
@@ -252,10 +255,37 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set PATH so it includes miniconda's bin
-if [ -d "$HOME/miniconda3/bin" ] ; then
-    PATH="$HOME/miniconda3/bin:$PATH"
-fi
+# if [ -d "$HOME/miniconda3/bin" ] ; then
+#     PATH="$HOME/miniconda3/bin:$PATH"
+# fi
 
-export BROWSER='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
+# export BROWSER='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
 
 eval "$(starship init zsh)"
+
+# Load syntax highlight
+source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# Load auto suggestion
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
+
+# Load completion config
+source $HOME/.zsh/completion.zsh
+
+# Initialize the completion system
+autoload -Uz compinit
+
+# Cache completion if nothing changed - faster startup time
+typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
+if [ $(date +'%j') != $updated_at ]; then
+  compinit -i
+else
+  compinit -C -i
+fi
+
+# Enhanced form of menu completion called `menu selection'
+zmodload -i zsh/complist
+
+
+# End Profiler
+# zprof
