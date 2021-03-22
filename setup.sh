@@ -6,13 +6,13 @@ sudo apt-get install cmake
 
 # Install Oh-My-Zsh
 # Needs password
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install powerlevel 10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
+# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
 
 # Install syntax highlighter for zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 
 # Install base16 shell colors
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
@@ -54,7 +54,7 @@ ln -s ~/dotfiles/.zshrc ~/.
 ln -s ~/dotfiles/.tmux.conf ~/.
 
 # Install Vim Plug
-sh -c 'curl -fLo ~/.config/nvim/site/autoload/plug.vim --create-dirs \
+sh -c 'curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Setup init vim
