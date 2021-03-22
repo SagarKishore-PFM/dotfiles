@@ -20,13 +20,21 @@ ZSH_THEME=""
 
 # alias conda="source /Users/apple/anaconda3/bin/activate"
 alias z="exec zsh"
+
 alias ca="conda activate"
 alias cdd="conda deactivate"
+
 alias druns="python manage.py runserver"
 alias dmm="python manage.py makemigrations"
 alias dmig="python manage.py migrate"
 alias dtest="python manage.py test"
 alias dsh="python manage.py shell"
+
+# Git aliases
+alias gp="git push"
+alias gl="git pull"
+alias gs="git status"
+
 # alias pip="pip3"
 alias v="nvim"
 
@@ -236,18 +244,18 @@ export LC_ALL=en_US.UTF-8
 
 
 # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/sagarkishore/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/sagarkishore/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/sagarkishore/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sagar/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sagar/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sagar/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sagar/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 # <<< conda initialize <<<
 
 if [ -d "$HOME/.local/bin" ] ; then
