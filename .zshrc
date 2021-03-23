@@ -4,7 +4,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-# export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # rabbitmq
 PATH=$PATH:/usr/local/sbin
@@ -46,7 +46,6 @@ alias tls="tmux ls"
 alias tas="tmux attach -t"
 alias tns="tmux new -s"
 
-
 alias tpmtip="~/.tmux/plugins/tpm/bin/install_plugins"
 alias tpmtup="~/.tmux/plugins/tpm/bin/update_plugins"
 alias tpmtdp="~/.tmux/plugins/tpm/bin/clean_plugins"
@@ -59,7 +58,7 @@ alias trc="v ~/.tmux.conf"
 alias nvrc="v ~/.config/nvim/init.vim"
 alias zclrs="for code ({000..255}) print -P -- '$code: %F{$code}This is how your text would look like%f'"
 alias cl="clear"
-export TERM=xterm-256color
+# export TERM=xterm-256color
 ##########################################################################################################
 #					POWERLEVEL9K CONFIGURATIONS
 ##########################################################################################################
@@ -217,7 +216,7 @@ plugins=(
   # zsh-syntax-highlighting
 )
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 
 # Compilation flags
