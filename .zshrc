@@ -9,6 +9,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # rabbitmq
 PATH=$PATH:/usr/local/sbin
 
+# Brew
+export PATH=/opt/homebrew/bin:$PATH
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -214,7 +217,11 @@ plugins=(
   # git
   # virtualenv
   # zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-completions
 )
+
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -231,42 +238,10 @@ source $ZSH/oh-my-zsh.sh
 #     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
 #         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-# . $HOME/anaconda3/etc/profile.d/conda.sh  # commented out by conda initialize
-
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Locale error fix on Mac
 export LC_ALL=en_US.UTF-8
 
-# code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-# source /opt/intel/openvino/bin/setupvars.sh
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/sagar/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/sagar/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/sagar/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/sagar/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-if [ -d "$HOME/.local/bin" ] ; then
-	    PATH="$HOME/.local/bin:$PATH"
-fi
-
-# set PATH so it includes miniconda's bin
-# if [ -d "$HOME/miniconda3/bin" ] ; then
-#     PATH="$HOME/miniconda3/bin:$PATH"
-# fi
-
-# export BROWSER='/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
 
 eval "$(starship init zsh)"
 
@@ -274,10 +249,10 @@ eval "$(starship init zsh)"
 source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # Load auto suggestion
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
+# source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
 
 # Load completion config
-source $HOME/.zsh/completion.zsh
+# source $HOME/.zsh/completion.zsh
 
 # Initialize the completion system
 autoload -Uz compinit
@@ -296,3 +271,19 @@ zmodload -i zsh/complist
 
 # End Profiler
 # zprof
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/kishores/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/kishores/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/kishores/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/kishores/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
